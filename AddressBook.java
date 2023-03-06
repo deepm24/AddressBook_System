@@ -1,45 +1,71 @@
 package org.example;
+
 import java.util.Scanner;
+
 public class AddressBook {
     public static void main(String[] args) {
+
         System.out.println("** Welcome To AddressBook System **");
+        Scanner scan = new Scanner(System.in);
 
-        System.out.println("--Enter person Details--");
+        InsertInformation insertInfo = new InsertInformation();
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the First name");
-        String firstName = sc.nextLine();
+        int choice =1;
+       while (choice != 0) {
+            System.out.println("Enter your choice");
+            System.out.println("1 : Insert the Contacts");
+            System.out.println("2 : Display all address in contact book");
+            System.out.println("9 : Terminate the application");
 
-        System.out.println("Enter the Last name");
-        String lastName = sc.nextLine();
+            choice = scan.nextInt();
+            switch (choice)
+            {
+                case 1:
+                    System.out.println("-*- Enter person Details -*-");
+                    String pos =scan.nextLine();
 
-        System.out.println("Enter the Address");
-        String address = sc.nextLine();
+                    System.out.println("Enter the First name");
+                    String firstName = scan.nextLine();
 
-        System.out.println("Enter the City");
-        String city = sc.nextLine();
+                    System.out.println("Enter the Last name");
+                    String lastName = scan.nextLine();
 
-        System.out.println("Enter the State");
-        String state = sc.nextLine();
+                    System.out.println("Enter the Address");
+                    String address = scan.nextLine();
 
-        System.out.println("Enter the Email");
-        String email = sc.nextLine();
+                    System.out.println("Enter the City");
+                    String city = scan.nextLine();
 
-        System.out.println("Enter the zipCode");
-        String zip = sc.nextLine();
+                    System.out.println("Enter the State");
+                    String state = scan.nextLine();
 
-        System.out.println("Enter the phone Number");
-        String phoneNumber = sc.nextLine();
+                    System.out.println("Enter the Email");
+                    String email = scan.nextLine();
 
-        System.out.println("Firstname: " + firstName);
-        System.out.println("Lastname: " + lastName);
-        System.out.println("Address: " + address);
-        System.out.println("City: " + city);
-        System.out.println("State: " + state);
-        System.out.println("Email: " + email);
-        System.out.println("Zipcode: " + zip);
-        System.out.println("phoneNumber: " + phoneNumber);
+                    System.out.println("Enter the zipCode");
+                    String zip = scan.nextLine();
+
+                    System.out.println("Enter the phone Number");
+                    String phoneNumber = scan.nextLine();
+                    insertInfo.insertData(firstName, lastName, address, city, state, email, zip, phoneNumber);
+                    break;
+
+                case 2:
+                    insertInfo.display();
+                    break;
+
+                case 9:
+                    choice = 0;
+                    System.out.println("----------------------Thank You For Using This AddressBook System---------------------");
+                    break;
+
+                default:
+                    System.out.println("-------Invalid Choice-------");
+
+            }
+        }
+
+
     }
-
-    }
+}
 
